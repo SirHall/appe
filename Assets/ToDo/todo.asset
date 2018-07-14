@@ -1,0 +1,188 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33714207ad0202c419142573e6e74a38, type: 3}
+  m_Name: todo
+  m_EditorClassIdentifier: 
+  Entries:
+  - Text: " Place in excessives namespace\r"
+    Note: 
+    Tag: '{TODO}'
+    File: C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Assets\Excessives\Fails\ConversionFields\ConverterFieldBase.cs
+    Line: 8
+    PathToShow: Assets/Excessives/Fails/ConversionFields/ConverterFieldBase.cs(8)
+  - Text: " Do we need this?\r"
+    Note: 
+    Tag: '{TODO}'
+    File: C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Assets\Scripts\AffectedProjectile.cs
+    Line: 15
+    PathToShow: Assets/Scripts/AffectedProjectile.cs(15)
+  - Text: " There is a function somewhere that calculates latitude properly, find
+      it!\r"
+    Note: 
+    Tag: '{TODO}'
+    File: C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Assets\Scripts\AffectedProjectile.cs
+    Line: 26
+    PathToShow: Assets/Scripts/AffectedProjectile.cs(26)
+  - Text: " Use this maths on the gunnery end\r"
+    Note: 
+    Tag: '{TODO}'
+    File: C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Assets\Scripts\AffectedProjectile.cs
+    Line: 63
+    PathToShow: Assets/Scripts/AffectedProjectile.cs(63)
+  - Text: " Properly setup how much kinetic energy we lose to the impact\r"
+    Note: 
+    Tag: '{TODO}'
+    File: C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Assets\Scripts\AffectedProjectile.cs
+    Line: 142
+    PathToShow: Assets/Scripts/AffectedProjectile.cs(142)
+  - Text: " Tie this up together with how much energy we lose to the rigidbody\r"
+    Note: 
+    Tag: '{TODO}'
+    File: C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Assets\Scripts\AffectedProjectile.cs
+    Line: 156
+    PathToShow: Assets/Scripts/AffectedProjectile.cs(156)
+  - Text: " Make this more realistic\r"
+    Note: 
+    Tag: '{TODO}'
+    File: C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Assets\Scripts\AffectedProjectile.cs
+    Line: 165
+    PathToShow: Assets/Scripts/AffectedProjectile.cs(165)
+  - Text: " Correct unit of measurement\r"
+    Note: 
+    Tag: '{TODO}'
+    File: C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Assets\Scripts\ProjectileData.cs
+    Line: 59
+    PathToShow: Assets/Scripts/ProjectileData.cs(59)
+  - Text: "Equations have been found, now implement them!\r"
+    Note: 
+    Tag: '{TODO}'
+    File: C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Assets\Scripts\ExplosiveReactions\ExplosiveReaction.cs
+    Line: 60
+    PathToShow: Assets/Scripts/ExplosiveReactions/ExplosiveReaction.cs(60)
+  - Text: " Finish using already found equations\r"
+    Note: 
+    Tag: '{TODO}'
+    File: C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Assets\Scripts\ExplosiveReactions\ExplosiveReaction.cs
+    Line: 74
+    PathToShow: Assets/Scripts/ExplosiveReactions/ExplosiveReaction.cs(74)
+  - Text: ": dispose managed state (managed objects).\r"
+    Note: 
+    Tag: TODO
+    File: C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Assets\Scripts\MCDRAG\MCDRAG.cs
+    Line: 321
+    PathToShow: Assets/Scripts/MCDRAG/MCDRAG.cs(321)
+  - Text: " Move declaration outside loop\r"
+    Note: 
+    Tag: '{TODO}'
+    File: C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Assets\Scripts\MCDRAG\MCDRAG.cs
+    Line: 141
+    PathToShow: Assets/Scripts/MCDRAG/MCDRAG.cs(141)
+  - Text: " Add graph optimization (Remove unecessary nodes)\r"
+    Note: 
+    Tag: '{TODO}'
+    File: C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Assets\Scripts\ProjectileStuff\DragGraphGenerator.cs
+    Line: 37
+    PathToShow: Assets/Scripts/ProjectileStuff/DragGraphGenerator.cs(37)
+  - Text: " Clean up/simplify this equation\r"
+    Note: 
+    Tag: '{TODO}'
+    File: C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Assets\Scripts\ProjectileStuff\DragGraphGenerator.cs
+    Line: 74
+    PathToShow: Assets/Scripts/ProjectileStuff/DragGraphGenerator.cs(74)
+  - Text: " FINISH OFF\r"
+    Note: 
+    Tag: '{TODO}'
+    File: C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Assets\Scripts\ProjectileStuff\DragGraphGenerator.cs
+    Line: 82
+    PathToShow: Assets/Scripts/ProjectileStuff/DragGraphGenerator.cs(82)
+  - Text: " Should I make this a static field instead of recreating it?\r"
+    Note: 
+    Tag: '{TODO}'
+    File: C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Assets\Scripts\ProjectileStuff\DragGraphGenerator2.cs
+    Line: 15
+    PathToShow: Assets/Scripts/ProjectileStuff/DragGraphGenerator2.cs(15)
+  - Text: " Correct this\r"
+    Note: 
+    Tag: '{TODO}'
+    File: C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Assets\Scripts\ProjectileStuff\DragGraphGenerator2.cs
+    Line: 23
+    PathToShow: Assets/Scripts/ProjectileStuff/DragGraphGenerator2.cs(23)
+  - Text: " Add center of mass to 'ProjectileData'\r"
+    Note: 
+    Tag: '{TODO}'
+    File: C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Assets\Scripts\ProjectileStuff\DragGraphGenerator2.cs
+    Line: 28
+    PathToShow: Assets/Scripts/ProjectileStuff/DragGraphGenerator2.cs(28)
+  - Text: " Add 'BoundaryLayerCode' field to 'ProjectileData'\r"
+    Note: 
+    Tag: '{TODO}'
+    File: C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Assets\Scripts\ProjectileStuff\DragGraphGenerator2.cs
+    Line: 29
+    PathToShow: Assets/Scripts/ProjectileStuff/DragGraphGenerator2.cs(29)
+  - Text: " Multi-thread this!\r"
+    Note: 
+    Tag: '{TODO}'
+    File: C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Assets\Scripts\ProjectileStuff\FiringDirectionCalculator.cs
+    Line: 13
+    PathToShow: Assets/Scripts/ProjectileStuff/FiringDirectionCalculator.cs(13)
+  - Text: " Rewrite this to make it dynamic for each calcData element\r"
+    Note: 
+    Tag: '{TODO}'
+    File: C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Assets\Scripts\ProjectileStuff\FiringDirectionCalculator.cs
+    Line: 90
+    PathToShow: Assets/Scripts/ProjectileStuff/FiringDirectionCalculator.cs(90)
+  - Text: " Add in option to change this to 'iterations per distance', would probably
+      be a lot more stable\r"
+    Note: 
+    Tag: '{TODO}'
+    File: C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Assets\Scripts\ProjectileStuff\FiringDirectionCalculator.cs
+    Line: 177
+    PathToShow: Assets/Scripts/ProjectileStuff/FiringDirectionCalculator.cs(177)
+  - Text: " Move this elsewhere\r"
+    Note: 
+    Tag: '{TODO}'
+    File: C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Assets\Scripts\ProjectileStuff\FiringDirectionCalculator.cs
+    Line: 323
+    PathToShow: Assets/Scripts/ProjectileStuff/FiringDirectionCalculator.cs(323)
+  - Text: " Multiply by zero if projectile above the troposphere at\r"
+    Note: 
+    Tag: '{TODO}'
+    File: C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Assets\Scripts\ProjectileStuff\ProjectileAffectors.cs
+    Line: 108
+    PathToShow: Assets/Scripts/ProjectileStuff/ProjectileAffectors.cs(108)
+  - Text: " Re-do\r"
+    Note: 
+    Tag: '{TODO}'
+    File: C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Assets\Scripts\ProjectileStuff\ProjectilePool.cs
+    Line: 10
+    PathToShow: Assets/Scripts/ProjectileStuff/ProjectilePool.cs(10)
+  - Text: " Re-enable and fix\r"
+    Note: 
+    Tag: '{TODO}'
+    File: C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Assets\Scripts\ProjectileStuff\ProjectilePool.cs
+    Line: 33
+    PathToShow: Assets/Scripts/ProjectileStuff/ProjectilePool.cs(33)
+  - Text: " Change this value\r"
+    Note: 
+    Tag: '{TODO}'
+    File: C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Assets\Scripts\ProjectileStuff\ProjectilePool.cs
+    Line: 39
+    PathToShow: Assets/Scripts/ProjectileStuff/ProjectilePool.cs(39)
+  - Text: " Continue!\r"
+    Note: 
+    Tag: '{TODO}'
+    File: C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Assets\Scripts\ProjLauncher\InternalBallistics.cs
+    Line: 79
+    PathToShow: Assets/Scripts/ProjLauncher/InternalBallistics.cs(79)
+  TagsList:
+  - TODO
+  - BUG
+  - '{TODO}'

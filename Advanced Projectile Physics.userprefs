@@ -1,0 +1,29 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ExplosiveReactions\ExplosiveReaction.cs">
+    <Files>
+      <File FileName="Assets\Scripts\ProjectileStuff\ProjectileAffectors.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Misc\MoveRandPos.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ProjectileStuff\CalcPosDerivatives.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ProjectileContainer.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ProjectileData.cs" Line="5" Column="1" />
+      <File FileName="Assets\Scripts\Editor\ProjectileDataEditor.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ProjectileStuff\DragGraphGenerator.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ProjectileStuff\PhysicalAffectedProjectile.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Interfaces.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\AffectedProjectile.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Environment\ProjectileEnvironment.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Environment\ProjectileEnvironmentData.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ProjectileStuff\ProjectilePool.cs" Line="1" Column="1" />
+      <File FileName="Assets\Demo\Firer.cs" Line="1" Column="1" />
+      <File FileName="Assets\Excessives\Scripts\C#\Excessives.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ExplosiveReactions\ReactionGas.cs" Line="7" Column="21" />
+      <File FileName="Assets\Scripts\ExplosiveReactions\ExplosiveReaction.cs" Line="40" Column="25" />
+      <File FileName="Assets\Scripts\ProjectileStuff\InternalBallistics.cs" Line="38" Column="36" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
