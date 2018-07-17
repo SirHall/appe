@@ -79,7 +79,7 @@
     <Compile Include="Assets\Scripts\Misc\CalcPosDerivatives.cs" />
     <Compile Include="Assets\Scripts\Misc\CalcVelocity.cs" />
     <Compile Include="Assets\Scripts\Misc\MoveRandPos.cs" />
-    <Compile Include="Assets\Scripts\PolyDirectionalDragJar.cs" />
+    <Compile Include="Assets\Scripts\DirectionalDragCube.cs" />
     <Compile Include="Assets\Scripts\ProjectileAffectors\AffectorBase.cs" />
     <Compile Include="Assets\Scripts\ProjectileAffectors\Affectors\Affector_Coriolis.cs" />
     <Compile Include="Assets\Scripts\ProjectileAffectors\Affectors\Affector_Gravity.cs" />
