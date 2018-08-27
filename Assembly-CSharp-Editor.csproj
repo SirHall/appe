@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{18E6568E-0419-8165-ABF7-0C1B418FE976}</ProjectGuid>
+    <ProjectGuid>{DC4EB5C1-29E3-A033-4889-8A682BB0BA33}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -65,10 +65,10 @@
     <Compile Include="Assets\ToDo\Editor\ToDoEditor.cs" />
     <Compile Include="Assets\ToDo\Editor\ToDoPreferences.cs" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/Public/Documents/Unity Projects/Advanced Projectile Physics/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/Public/Documents/Unity Projects/Advanced Projectile Physics/Advanced-Projectile-Physics/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/Public/Documents/Unity Projects/Advanced Projectile Physics/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/Public/Documents/Unity Projects/Advanced Projectile Physics/Advanced-Projectile-Physics/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity 2018.1.0b13/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -679,7 +679,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{B1C42223-0AFF-7C85-63BA-7282AF171532}</Project>
+      <Project>{ABAC7EE9-1262-DAE6-A7EC-EB1EE5ACF8F6}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
   </ItemGroup>

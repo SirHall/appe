@@ -8,9 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
-    <ProjectGuid>{B1C42223-0AFF-7C85-63BA-7282AF171532}</ProjectGuid>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{ABAC7EE9-1262-DAE6-A7EC-EB1EE5ACF8F6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -60,15 +59,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Demo\Firer.cs" />
-    <Compile Include="Assets\Excessives\Fails\ConversionFields\ConverterFieldBase.cs" />
-    <Compile Include="Assets\Excessives\Fails\ConversionFields\ConverterFieldEditor.cs" />
-    <Compile Include="Assets\Excessives\Scripts\C#\Excessives.cs" />
-    <Compile Include="Assets\Excessives\Scripts\C#\LinqE.cs" />
-    <Compile Include="Assets\Excessives\Scripts\UnityC#\CoroutinE.cs" />
-    <Compile Include="Assets\Excessives\Scripts\UnityC#\MonoDualLinks.cs" />
-    <Compile Include="Assets\Excessives\Scripts\UnityC#\MouseLock.cs" />
-    <Compile Include="Assets\Excessives\Scripts\UnityC#\UnityExcessives.cs" />
+    <Compile Include="Assets\Excessives\C#\BitString.cs" />
+    <Compile Include="Assets\Excessives\C#\BitWisE.cs" />
+    <Compile Include="Assets\Excessives\C#\ConsolE.cs" />
+    <Compile Include="Assets\Excessives\C#\Excessives.cs" />
+    <Compile Include="Assets\Excessives\C#\Experimental\OverRot.cs" />
+    <Compile Include="Assets\Excessives\C#\FactorE.cs" />
+    <Compile Include="Assets\Excessives\C#\LinqE.cs" />
+    <Compile Include="Assets\Excessives\C#\ReflectionE.cs" />
+    <Compile Include="Assets\Excessives\C#\ZciencE.cs" />
+    <Compile Include="Assets\Excessives\UnityC#\CoroutinE.cs" />
+    <Compile Include="Assets\Excessives\UnityC#\FastUpdate\FastUpdateManager.cs" />
+    <Compile Include="Assets\Excessives\UnityC#\FastUpdate\FastUpdateManager2.cs" />
+    <Compile Include="Assets\Excessives\UnityC#\MonoDualLinks.cs" />
+    <Compile Include="Assets\Excessives\UnityC#\MouseLock.cs" />
+    <Compile Include="Assets\Excessives\UnityC#\PhysiquE\PhysiquE.cs" />
+    <Compile Include="Assets\Excessives\UnityC#\UnityExcessives.cs" />
     <Compile Include="Assets\Scripts\AffectedProjectile.cs" />
+    <Compile Include="Assets\Scripts\DirectionalDragCube.cs" />
     <Compile Include="Assets\Scripts\Environment\ProjectileEnvironment.cs" />
     <Compile Include="Assets\Scripts\Environment\ProjectileEnvironmentData.cs" />
     <Compile Include="Assets\Scripts\ExplosiveReactions\ExplosiveReaction.cs" />
@@ -79,33 +87,39 @@
     <Compile Include="Assets\Scripts\Misc\CalcPosDerivatives.cs" />
     <Compile Include="Assets\Scripts\Misc\CalcVelocity.cs" />
     <Compile Include="Assets\Scripts\Misc\MoveRandPos.cs" />
-    <Compile Include="Assets\Scripts\DirectionalDragCube.cs" />
     <Compile Include="Assets\Scripts\ProjectileAffectors\AffectorBase.cs" />
+    <Compile Include="Assets\Scripts\ProjectileAffectors\AffectorFactory.cs" />
+    <Compile Include="Assets\Scripts\ProjectileAffectors\AffectorFactorySingleton.cs" />
     <Compile Include="Assets\Scripts\ProjectileAffectors\Affectors\Affector_Coriolis.cs" />
     <Compile Include="Assets\Scripts\ProjectileAffectors\Affectors\Affector_Gravity.cs" />
     <Compile Include="Assets\Scripts\ProjectileAffectors\Affectors\Affector_SpinTwist.cs" />
-    <Compile Include="Assets\Scripts\ProjectileAffectors\Affectors\Affector_WindDrag.cs" />
+    <Compile Include="Assets\Scripts\ProjectileAffectors\Affectors\Affector_WindDrag - Copy.cs" />
+    <Compile Include="Assets\Scripts\ProjectileAffectors\Affectors\Affector_WindDragCubed.cs" />
+    <Compile Include="Assets\Scripts\ProjectileAffectors\TerminalBallistics\TerminalBallisticCalculator.cs" />
+    <Compile Include="Assets\Scripts\ProjectileAffectors\TerminalBallistics\TerminalBallisticDetector.cs" />
     <Compile Include="Assets\Scripts\ProjectileContainer.cs" />
     <Compile Include="Assets\Scripts\ProjectileData.cs" />
     <Compile Include="Assets\Scripts\ProjectileDataObject.cs" />
     <Compile Include="Assets\Scripts\ProjectileStuff\DragGraphGenerator.cs" />
     <Compile Include="Assets\Scripts\ProjectileStuff\DragGraphGenerator2.cs" />
     <Compile Include="Assets\Scripts\ProjectileStuff\FiringDirectionCalculator.cs" />
+    <Compile Include="Assets\Scripts\ProjectileStuff\Projectile_VirtualPhysicsTransform.cs" />
     <Compile Include="Assets\Scripts\ProjectileStuff\ProjectileAffectors.cs" />
     <Compile Include="Assets\Scripts\ProjectileStuff\ProjectilePool.cs" />
     <Compile Include="Assets\Scripts\ProjectileStuff\RenderBullet.cs" />
     <Compile Include="Assets\Scripts\ProjectileStuff\RenderProjectilePath.cs" />
     <Compile Include="Assets\Scripts\ProjectileStuff\SpawnBullets.cs" />
     <Compile Include="Assets\Scripts\ProjLauncher\InternalBallistics.cs" />
+    <Compile Include="Assets\Scripts\VirtualPhysicsTransform.cs" />
     <Compile Include="Assets\Tester.cs" />
     <Compile Include="Assets\ToDo\Core\ScriptsParser.cs" />
     <Compile Include="Assets\ToDo\Core\TodoData.cs" />
     <Compile Include="Assets\ToDo\Core\TodoEntry.cs" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/Public/Documents/Unity Projects/Advanced Projectile Physics/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/Public/Documents/Unity Projects/Advanced Projectile Physics/Advanced-Projectile-Physics/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/Public/Documents/Unity Projects/Advanced Projectile Physics/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/Public/Documents/Unity Projects/Advanced Projectile Physics/Advanced-Projectile-Physics/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity 2018.1.0b13/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

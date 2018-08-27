@@ -1,9 +1,28 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 //[CreateAssetMenu(fileName = "ProjectileAffector", menuName = "AProjectiles/ProjectileAffector")]
-public abstract class AffectorBase : ScriptableObject
+[System.Serializable]
+public class AffectorBase : ICloneable
 {
-	public abstract void Tick(AffectedProjectile proj, float deltaTime);
+	//public AffectorBase() { }
+
+	//public AffectorBase(AffectedProjectile projectile)
+	//{
+	//	this.proj = projectile;
+	//}
+
+	protected AffectedProjectile proj;
+	public AffectedProjectile Projectile { set { this.proj = value; } }
+
+	public virtual void Tick_PrePhysics(float deltaTime) { }
+
+	public virtual void Tick_PostPhysics(float deltaTime) { }
+
+	public virtual object Clone()
+	{
+		return (AffectorBase)MemberwiseClone();
+	}
 }

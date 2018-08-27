@@ -6,9 +6,10 @@ using Excessives;
 
 public class Firer : MonoBehaviour
 {
-	public IProjData projData;
+	//public IProjData projData;
 
-	AffectedProjectile affectedProj;
+	public AffectedProjectile affectedProj;
+	//AffectedProjectile affectedProj;
 
 	public Vector3 initialDirection = Vector3.right;
 
@@ -16,12 +17,13 @@ public class Firer : MonoBehaviour
 
 	void Start()
 	{
-		affectedProj = new AffectedProjectile(Vector3.zero, Vector3.right, projData.ProjInfo, 5.0f);
-		affectedProj.AddForce(initialDirection.normalized * initialVelocity, ForceMode.VelocityChange, Time.deltaTime);
+		affectedProj.physicsTransform
+			.AddForce(initialDirection.normalized * initialVelocity, ForceMode.VelocityChange, Time.deltaTime);
+		ProjectilePool.instance.FireProjectile(affectedProj);
 	}
 
 	void Update()
 	{
-		affectedProj.Tick(Time.deltaTime);
+		//affectedProj.Tick(Time.deltaTime);
 	}
 }

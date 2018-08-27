@@ -1,41 +1,47 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 
-//{TODO} Is this class needed
-
-class DirectionalDragCube
+[System.Serializable]
+public class DirectionalDragCube
 {
 	public DirectionalDragCube()
 	{
 
 	}
 
-	public Vector3 EvaluateLocalDrag(Vector3 localVel, float[] crossSectionalArea, float mass, float fluidDensity)
+	/// <summary>
+	/// Finds the drag acceleration experienced by 'the cube'
+	/// </summary>
+	/// <param name="localVel"></param>
+	/// <param name="crossSectionalArea"></param>
+	/// <param name="mass"></param>
+	/// <param name="fluidDensity"></param>
+	/// <returns></returns>
+	public virtual Vector3 EvaluateLocalDrag(Vector3 localVel, float mass, float fluidDensity)
 	{
-		Vector3 localDragAccel = Vector3.zero;
-
-
-
-		return localDragAccel;
+		return new Vector3(
+				EvaluateXDrag(localVel.x, crossSectionalArea.x, mass, fluidDensity),
+				EvaluateYDrag(localVel.y, crossSectionalArea.y, mass, fluidDensity),
+				EvaluateZDrag(localVel.z, crossSectionalArea.z, mass, fluidDensity)
+				);
 	}
 
+	/// <summary>
+	/// The cross sectional area on each axis
+	/// </summary>
+	protected Vector3 crossSectionalArea;
 
-	float FindDragAlongAxis(Vector3 localVel, Vector3 axis, float[] crossSectionalArea, float mass, float fluidDensity)
+	protected virtual float EvaluateXDrag(float localVel, float crossSectionalArea, float mass, float fluidDensity) { return 0.0f; }
+	protected virtual float EvaluateYDrag(float localVel, float crossSectionalArea, float mass, float fluidDensity) { return 0.0f; }
+	protected virtual float EvaluateZDrag(float localVel, float crossSectionalArea, float mass, float fluidDensity) { return 0.0f; }
+
+	/// <summary>
+	/// Wrapper for Vector3.Project()
+	/// </summary>
+	/// <param name="localDrag"></param>
+	/// <param name="axis"></param>
+	/// <returns></returns>
+	public virtual Vector3 GetLocalDragAlongAxis(Vector3 localDrag, Vector3 axis)
 	{
-		float dragOnAxis = 0.0f;
-
-		return dragOnAxis;
-	}
-
-}
-
-public class DirectionalDrag
-{
-	public DirectionalDrag() { }
-
-	public virtual Vector3 direction { get; private set; }
-	public virtual float EvaluateDragCoefficient(Vector3 localVelocity)
-	{
-		return 0.1f;
+		return Vector3.Project(localDrag, axis);
 	}
 }

@@ -4,86 +4,107 @@ using UnityEngine;
 using Excessives.LinqE;
 using Excessives;
 using Excessives.Unity;
+using System.Linq;
 
 //Is used to hold all projectiles currently in existence
 
 //{TODO} Re-do
 public class ProjectilePool : MonoBehaviour
 {
-    [SerializeField]
-    GameObject defaultPrefab;
+	public static ProjectilePool instance;
 
-    [SerializeField]
-    ProjectileData defaultData;
+	#region Private Vars
 
-    public static ProjectilePool instance;
+	[SerializeField]
+	int _poolSize = 1000;
 
-    [SerializeField]
-    int poolSize = 10;
+	AffectedProjectile[] projectilePool = new AffectedProjectile[0];
 
-    Queue<AffectedProjectile> projectilePool = new Queue<AffectedProjectile>();
+	//Projectiles should rarely reach this, meaning that not too much garbage will be created
+	Queue<AffectedProjectile> projectileOverflow = new Queue<AffectedProjectile>();
 
-    void Awake()
-    {
-        instance = this;
-    }
+	#endregion
 
-    void Start()
-    {
-        //{TODO} Re-enable and fix
-        // StatementsE.Repeat((ulong)poolSize, () => projectilePool.Enqueue(new AffectedProjectile(
-        //    Vector3.zero,
-        //    Vector3.zero,
-        //    defaultData,
-        //    defaultPrefab,
-        //    0,//{TODO} Change this value
-        //    false
-        //)
-        //));
+	#region Properties
 
-        projectilePool.Count.Log();
-    }
+	public int PoolSize
+	{
+		get { return _poolSize; }
+		set
+		{
+			if (_poolSize == value) //We did not resize the poolsize
+				return;
+			AffectedProjectile[] oldArray = projectilePool;
+			projectilePool = new AffectedProjectile[_poolSize];
 
-    void FixedUpdate()
-    {
-        projectilePool.ForEach(n => n.Tick(Time.fixedDeltaTime));
-    }
+			if (value > _poolSize) //We have made the pool larger
+				oldArray.CopyTo(projectilePool, 0);
+			else //We have made the pool smaller
+				oldArray.SubArray(0, value).ToArray().CopyTo(projectilePool, 0);
 
-    public void FireProjectile(
-        Vector3 position,
-        Vector3 direction,
-        ProjectileData pd,
-        float twist
-    )
-    {
-        AffectedProjectile projectile = projectilePool.Dequeue();
+			_poolSize = value;
+		}
+	}
 
-        projectile.Initial(position, direction, pd, twist);
+	#endregion
 
-        projectilePool.Enqueue(projectile);
-    }
 
-    public void FireProjectile(
-        Vector3 position,
-        Vector3 direction,
-        ProjectileData pd,
-        GameObject newBulletPrefab,
-        float twist
-    )
-    {
-        AffectedProjectile projectile = projectilePool.Dequeue();
+	void Awake()
+	{
+		instance = this;
+		projectilePool = new AffectedProjectile[_poolSize];
+	}
 
-        projectile.Initial(position, direction, pd, twist);
+	void FixedUpdate()
+	{
+		for (int i = 0; i < projectilePool.Length; i++)
+			if (projectilePool[i] != null && projectilePool[i].Active)
+				projectilePool[i].Tick(Time.fixedDeltaTime);
+	}
 
-        projectilePool.Enqueue(projectile);
+	private void Update()
+	{
+		//Attempt to clear the queue
+		while (
+			projectileOverflow.Count > 0 &&
+			projectilePool.Any(n => n == null || !n.Active)
+			)
+			FireProjectile(projectileOverflow.Dequeue());
+	}
 
-    }
+	public void FireProjectile(AffectedProjectile projectile)
+	{
+		int index = -1;
+		//{TODO} Could redo this with 'LinqE.FindIndex()'
+		for (int i = 0; i < projectilePool.Length; i++)
+			if (projectilePool[i] == null || !projectilePool[i].Active)
+			{
+				index = i;
+				break;
+			}
 
-    public void DestroyPool()
-    {
-        //projectilePool.ForEach(n => GameObject.Destroy(n.gameObjectRep));
+		if (index != -1)
+		{
+			projectilePool[index] = projectile;
+			projectile.Active = true;
+		}
+		else
+			projectileOverflow.Enqueue(projectile);
 
-        projectilePool.Clear();
-    }
+
+
+		//if (PoolSize == 0)
+		//	Debug.LogError("Must have a poolsize of atleast '1' to fire a projectile");
+		//AffectedProjectile projectile = projectilePool.First(n => !n.Active);
+
+		//projectile.Initial(position, direction, pd, twist);
+
+		//projectile.Active = true;
+	}
+
+	public void ForceOffPool()
+	{
+		projectilePool.For((n, i) => projectilePool[i] = null);
+	}
 
 }

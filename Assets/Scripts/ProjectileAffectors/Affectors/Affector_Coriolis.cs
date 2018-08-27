@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CoriolisAffector", menuName = "AProjectiles/Affectors/CoriolisAffector")]
+//[CreateAssetMenu(fileName = "CoriolisAffector", menuName = "AProjectiles/Affectors/CoriolisAffector")]
+[System.Serializable]
 public class Affector_Coriolis : AffectorBase
 {
-	public override void Tick(AffectedProjectile proj, float deltaTime)
+	//public Affector_Coriolis() : base()
+	//{ }
+
+	public override void Tick_PostPhysics(float deltaTime)
 	{
-		proj.AddForce(
-			GetCoriolisAcceleration(proj.velocity),
+		proj.physicsTransform.AddForce(
+			GetCoriolisAcceleration(proj.physicsTransform.Velocity),
 			ForceMode.Acceleration,
 			deltaTime
 		);

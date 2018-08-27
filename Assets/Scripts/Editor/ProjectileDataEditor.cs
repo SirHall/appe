@@ -61,7 +61,6 @@ public class ProjectileDataEditor : PropertyDrawer
 
 		if (isOpen)
 		{
-
 			GetAllSerializedProperties(property);
 
 			//currentRect.y += 123;
@@ -120,6 +119,10 @@ public class ProjectileDataEditor : PropertyDrawer
 
 			#region Clamp Values
 
+			bulletLength.floatValue = Mathf.Clamp(bulletLength.floatValue, 0.4f, float.PositiveInfinity);
+			cylinderLength.floatValue = Mathf.Clamp(cylinderLength.floatValue, 0.2f, float.PositiveInfinity);
+
+
 			//ogiveRadius.floatValue = Mathf.Clamp(ogiveRadius.floatValue, 0.1f, float.PositiveInfinity);
 			driveBandLength.floatValue = Mathf.Clamp(driveBandLength.floatValue, 0.1f, cylinderLength.floatValue * 0.5f);
 			meplatDiameter.floatValue = Mathf.Clamp(meplatDiameter.floatValue, 0, float.PositiveInfinity);
@@ -130,9 +133,20 @@ public class ProjectileDataEditor : PropertyDrawer
 			noseLength.floatValue = Mathf.Clamp(noseLength.floatValue, 0.1f, bulletLength.floatValue - boatTailLength.floatValue);
 			boatTailLength.floatValue = Mathf.Clamp(boatTailLength.floatValue, 0.1f, bulletLength.floatValue - noseLength.floatValue);
 
+			boatTailDiameter.floatValue = Mathf.Clamp(boatTailDiameter.floatValue, 0.1f, float.PositiveInfinity);
+			baseDiameter.floatValue = Mathf.Clamp(baseDiameter.floatValue, 0.1f, float.PositiveInfinity);
+			bulletMass.floatValue = Mathf.Clamp(bulletMass.floatValue, 0.1f, float.PositiveInfinity);
+
+			driveBandDiameter.floatValue = Mathf.Clamp(driveBandDiameter.floatValue, 0.1f, float.PositiveInfinity);
+
 			#endregion
 
+			//Don't read inside this region if you don't want to have a mental collapse. Yeah, I wrote this code
+			//and as the coder I've had a few of my own skull cave-ins as a result.
 			#region Draw Bullet Graphic
+
+			//Screw you
+
 			//Render what the bullet would look like
 
 			Texture2D bulletTex = new Texture2D(280, 210);
@@ -242,163 +256,7 @@ public class ProjectileDataEditor : PropertyDrawer
 			 * connecting to the center point are the Ogive Radius.
 			 */
 
-			#region OLD
-			//Firstly, divide the distance between the nose tip and base edge by two to form a right angled triangle.
-
-			//		float halfDistance = Vector2.Distance (
-			//			                     new Vector2 (midPoint.x + bulletData.cylinderLength * 0.5f * offsetScale,
-			//				                     midPoint.y + bulletData.bulletDiameter * 0.5f * offsetScale),
-			//			                     new Vector2 (midPoint.x + (bulletData.cylinderLength * 0.5f + bulletData.noseVirtualLength) * offsetScale,
-			//				                     midPoint.y)
-			//		                     ) / 2;
-			//
-			//		//Find rotation between both positions
-			//		float rotation = Vector2.SignedAngle (
-			//			                 new Vector2 (midPoint.x + bulletData.cylinderLength * 0.5f * offsetScale,
-			//				                 midPoint.y + bulletData.bulletDiameter * 0.5f * offsetScale),
-			//			                 new Vector2 (midPoint.x + (bulletData.cylinderLength * 0.5f + bulletData.noseVirtualLength) * offsetScale,
-			//				                 midPoint.y)
-			//		                 );
-			//
-			//		DrawLine (ref bulletTex,
-			//			(int)(midPoint.x + bulletData.cylinderLength * 0.5f * offsetScale),
-			//			(int)(midPoint.y + bulletData.bulletDiameter * 0.5f * offsetScale),
-			//			(int)(midPoint.x + (bulletData.cylinderLength * 0.5f + bulletData.noseVirtualLength) * offsetScale),
-			//			(int)(midPoint.y),
-			//			Color.black
-			//		);
-			//
-			//		Vector2 ogiveMidPoint = (
-			//		                            new Vector2 (midPoint.x + bulletData.cylinderLength * 0.5f * offsetScale,
-			//			                            midPoint.y + bulletData.bulletDiameter * 0.5f * offsetScale) +
-			//		                            new Vector2 (midPoint.x + (bulletData.cylinderLength * 0.5f + bulletData.noseVirtualLength) * offsetScale,
-			//			                            midPoint.y)
-			//		                        ) / 2;
-			#endregion
-
 			int noseDrawIterations = 200;
-
-			//Make sure we only render the bullet where the y>=0
-			//float xInt = 0;
-
-			#region OLD2
-
-			//for (int i = 0; i < noseDrawIterations; i++)
-			//{
-			//	//tex:
-			//	// $$if \sqrt{ogiveRadius^2-(noseVirtualLength*i/noseDrawIterations)^2}
-			//	// +ogiveTangentRadius - ogiveRadius >= 0$$
-
-			//	if (
-			//		(+Mathf.Sqrt(
-			//			(ogiveRadius.floatValue * ogiveRadius.floatValue)
-			//			- ((noseVirtualLength.floatValue * i / noseDrawIterations) * (noseVirtualLength.floatValue * i / noseDrawIterations))
-			//		) + ogiveTangentRadius.floatValue - ogiveRadius.floatValue)
-			//		>= 0)
-			//	{
-			//		#region Upper Ogive
-			//		DrawLine(ref bulletTex,
-
-			//			//x-Start
-			//			(int)(midPoint.x + Mathf.Clamp(
-			//				((cylinderLength.floatValue / 2) + (noseVirtualLength.floatValue * i / noseDrawIterations)) * offsetScale
-			//		, 0, Mathf.Infinity)),
-
-			//			//y-Start
-			//			(int)(midPoint.y + (
-			//				+Mathf.Sqrt(
-			//					Mathf.Pow(ogiveRadius.floatValue, 2)
-			//					- Mathf.Pow(noseVirtualLength.floatValue * i / noseDrawIterations, 2)
-			//				) + ogiveTangentRadius.floatValue - ogiveRadius.floatValue) * offsetScale),
-
-			//			//x-Stop
-			//			(int)(midPoint.x + Mathf.Clamp(
-			//				((cylinderLength.floatValue / 2) + (noseVirtualLength.floatValue * (i + 1) / noseDrawIterations)) * offsetScale
-			//		, 0, Mathf.Infinity)),
-
-			//			//y-Stop
-			//			(int)(midPoint.y + (
-			//				+Mathf.Sqrt(
-			//					Mathf.Pow(ogiveRadius.floatValue, 2)
-			//					- Mathf.Pow(noseVirtualLength.floatValue * (i + 1) / noseDrawIterations, 2)
-			//				) + ogiveTangentRadius.floatValue - ogiveRadius.floatValue) * offsetScale),
-
-			//			drawColor
-			//		);
-			//		#endregion
-
-			//		#region Lower Ogive
-			//		DrawLine(ref bulletTex,
-
-			//			(int)(midPoint.x + Mathf.Clamp(
-			//				((cylinderLength.floatValue / 2) + (noseVirtualLength.floatValue * i / noseDrawIterations)) * offsetScale
-			//			, 0, Mathf.Infinity)),
-
-			//			(int)(midPoint.y - (
-			//				+Mathf.Sqrt(
-			//					Mathf.Pow(ogiveRadius.floatValue, 2)
-			//					- Mathf.Pow(noseVirtualLength.floatValue * i / noseDrawIterations, 2)
-			//				) + ogiveTangentRadius.floatValue - ogiveRadius.floatValue) * offsetScale),
-
-			//			(int)(midPoint.x + Mathf.Clamp(
-			//				((cylinderLength.floatValue / 2) + (noseVirtualLength.floatValue * (i + 1) / noseDrawIterations)) * offsetScale
-			//			, 0, Mathf.Infinity)),
-
-			//			(int)(midPoint.y - (
-			//				+Mathf.Sqrt(
-			//					Mathf.Pow(ogiveRadius.floatValue, 2)
-			//					- Mathf.Pow(noseVirtualLength.floatValue * (i + 1) / noseDrawIterations, 2)
-			//				) + ogiveTangentRadius.floatValue - ogiveRadius.floatValue) * offsetScale),
-			//			drawColor
-
-			//		);
-			//		#endregion
-
-
-			//	}
-			//	else
-			//	{
-			//		//Draw a line between the two nose points(for when the ogive radius is really small),
-			//		//and break out of the loop so we aren't uselessly trying
-			//		//to draw more lines only to deny making them
-
-			//		DrawLine(ref bulletTex,
-
-			//			(int)(midPoint.x + Mathf.Clamp(
-			//				((cylinderLength.floatValue / 2) + (noseVirtualLength.floatValue * (i - 1) / noseDrawIterations)) * offsetScale
-			//			, 0, Mathf.Infinity)),
-
-			//			(int)(midPoint.y + (
-			//				+Mathf.Sqrt(
-			//					Mathf.Pow(ogiveRadius.floatValue, 2)
-			//					- Mathf.Pow(noseVirtualLength.floatValue * (i - 1) / noseDrawIterations, 2)
-			//				) + ogiveTangentRadius.floatValue - ogiveRadius.floatValue) * offsetScale),
-
-			//			(int)(midPoint.x + Mathf.Clamp(
-			//				((cylinderLength.floatValue / 2) + (noseVirtualLength.floatValue * (i - 1) / noseDrawIterations)) * offsetScale
-			//			, 0, Mathf.Infinity)),
-
-			//			(int)(midPoint.y - (
-			//				+Mathf.Sqrt(
-			//					Mathf.Pow(ogiveRadius.floatValue, 2)
-			//					- Mathf.Pow(noseVirtualLength.floatValue * (i - 1) / noseDrawIterations, 2)
-			//				) + ogiveTangentRadius.floatValue - ogiveRadius.floatValue) * offsetScale),
-			//			drawColor
-			//		);
-			//		break;
-			//	}
-			//}
-
-			#endregion
-
-			//(int)(midPoint.x + Mathf.Clamp(
-			//				((cylinderLength.floatValue / 2) + (noseVirtualLength.floatValue * i / noseDrawIterations)) * offsetScale
-			//		, 0, Mathf.Infinity))
-
-			//Vector2Int
-			//	upperOgivePrevPos = new Vector2Int(),
-			//	lowerOgivePrevPos;
-
 
 			int start =
 				(int)(midPoint.x + Mathf.Clamp(

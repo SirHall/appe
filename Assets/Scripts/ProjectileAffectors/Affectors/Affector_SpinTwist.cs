@@ -2,26 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "SpinTwistAffector", menuName = "AProjectiles/Affectors/SpinTwistAffector")]
+//[CreateAssetMenu(fileName = "SpinTwistAffector", menuName = "AProjectiles/Affectors/SpinTwistAffector")]
+[System.Serializable]
 public class Affector_SpinTwist : AffectorBase
 {
+	//public Affector_SpinTwist() : base()
+	//{
+	//}
 
-
-	public override void Tick(AffectedProjectile proj, float deltaTime)
+	public override void Tick_PostPhysics(float deltaTime)
 	{
-		proj.position +=
-			Quaternion.FromToRotation(Vector3.forward, proj.velocity.normalized) *
+		Vector3 pos = proj.physicsTransform.Position;
+
+		pos +=
+			Quaternion.FromToRotation(Vector3.forward, proj.physicsTransform.Velocity.normalized) *
 			new Vector3(
 				GetSpinDrift(
 						GetMillerStability(
 							proj.projectileData.bulletMass,
 							proj.projectileData.bulletDiameter,
 							proj.projectileData.bulletLength,
-							proj.spinTwist
+							proj.physicsTransform.SpinVelocity
 							),
 					deltaTime,
-					proj.spinTwist),
+					proj.physicsTransform.SpinVelocity),
 				0, 0);
+		proj.physicsTransform.Position = pos;
 	}
 
 	#region Related Methods
@@ -45,6 +51,8 @@ public class Affector_SpinTwist : AffectorBase
 	}
 
 	float l, t; //Only initialize these once
+
+	//Add in multiple stability methods
 
 	/// <summary>
 	/// Millers the stability.

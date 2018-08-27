@@ -14,10 +14,10 @@ MonoBehaviour:
   useAdvancedAirDensity: 1
   airDensity: 1
   windVelocity: {x: 0, y: 100, z: 0}
-  useAdvancedGravity: 1
+  useAdvancedGravity: 0
   gravity: {x: 0, y: -9.80665, z: 0}
   latitude: 0
   upVector: {x: 0, y: 1, z: 0}
   planetaryDiameter: 6371000
-  planetaryLengthOfDay: 1
+  planetaryLengthOfDay: 86400
   planetaryMass: 5.972e+24

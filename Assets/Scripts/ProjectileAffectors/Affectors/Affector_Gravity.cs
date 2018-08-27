@@ -2,17 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "GravityAffector", menuName = "AProjectiles/Affectors/GravityAffector")]
+//[CreateAssetMenu(fileName = "GravityAffector", menuName = "AProjectiles/Affectors/GravityAffector")]
+[System.Serializable]
 public class Affector_Gravity : AffectorBase
 {
-	public bool useAdvancedGravity;
+	//public Affector_Gravity() : base()
+	//{
+	//}
 
-	public Vector3 gravity;
+	public bool useAdvancedGravity = false;
 
-	public override void Tick(AffectedProjectile proj, float deltaTime)
+	public Vector3 gravity = Vector3.down * 9.81f;
+
+	public override void Tick_PostPhysics(float deltaTime)
 	{
-		proj.AddForce(
-		 useAdvancedGravity ? GetGravity(proj.position.y) : gravity,
+		proj.physicsTransform.AddForce(
+			useAdvancedGravity ? GetGravity(proj.physicsTransform.Position.y) : gravity,
 			ForceMode.Acceleration,
 			deltaTime
 			);

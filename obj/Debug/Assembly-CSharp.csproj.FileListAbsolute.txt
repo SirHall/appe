@@ -30,3 +30,7 @@ C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Temp\bin\De
 C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\obj\Debug\Assembly-CSharp.dll
 C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\obj\Debug\Assembly-CSharp.pdb
+C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Advanced-Projectile-Physics\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Advanced-Projectile-Physics\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
+C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Advanced-Projectile-Physics\obj\Debug\Assembly-CSharp.dll
+C:\Users\Public\Documents\Unity Projects\Advanced Projectile Physics\Advanced-Projectile-Physics\obj\Debug\Assembly-CSharp.pdb
