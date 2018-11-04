@@ -9,8 +9,7 @@ using System.Linq;
 //Is used to hold all projectiles currently in existence
 
 //{TODO} Re-do
-public class ProjectilePool : MonoBehaviour
-{
+public class ProjectilePool : MonoBehaviour {
 	public static ProjectilePool instance;
 
 	#region Private Vars
@@ -18,6 +17,7 @@ public class ProjectilePool : MonoBehaviour
 	[SerializeField]
 	int _poolSize = 1000;
 
+	[SerializeField]
 	AffectedProjectile[] projectilePool = new AffectedProjectile[0];
 
 	//Projectiles should rarely reach this, meaning that not too much garbage will be created
@@ -27,11 +27,9 @@ public class ProjectilePool : MonoBehaviour
 
 	#region Properties
 
-	public int PoolSize
-	{
+	public int PoolSize {
 		get { return _poolSize; }
-		set
-		{
+		set {
 			if (_poolSize == value) //We did not resize the poolsize
 				return;
 			AffectedProjectile[] oldArray = projectilePool;
@@ -49,21 +47,18 @@ public class ProjectilePool : MonoBehaviour
 	#endregion
 
 
-	void Awake()
-	{
+	void Awake() {
 		instance = this;
 		projectilePool = new AffectedProjectile[_poolSize];
 	}
 
-	void FixedUpdate()
-	{
+	void FixedUpdate() {
 		for (int i = 0; i < projectilePool.Length; i++)
 			if (projectilePool[i] != null && projectilePool[i].Active)
 				projectilePool[i].Tick(Time.fixedDeltaTime);
 	}
 
-	private void Update()
-	{
+	private void Update() {
 		//Attempt to clear the queue
 		while (
 			projectileOverflow.Count > 0 &&
@@ -72,23 +67,19 @@ public class ProjectilePool : MonoBehaviour
 			FireProjectile(projectileOverflow.Dequeue());
 	}
 
-	public void FireProjectile(AffectedProjectile projectile)
-	{
+	public void FireProjectile(AffectedProjectile projectile) {
 		int index = -1;
 		//{TODO} Could redo this with 'LinqE.FindIndex()'
 		for (int i = 0; i < projectilePool.Length; i++)
-			if (projectilePool[i] == null || !projectilePool[i].Active)
-			{
+			if (projectilePool[i] == null || !projectilePool[i].Active) {
 				index = i;
 				break;
 			}
 
-		if (index != -1)
-		{
+		if (index != -1) {
 			projectilePool[index] = projectile;
 			projectile.Active = true;
-		}
-		else
+		} else
 			projectileOverflow.Enqueue(projectile);
 
 
@@ -102,8 +93,7 @@ public class ProjectilePool : MonoBehaviour
 		//projectile.Active = true;
 	}
 
-	public void ForceOffPool()
-	{
+	public void ForceOffPool() {
 		projectilePool.For((n, i) => projectilePool[i] = null);
 	}
 

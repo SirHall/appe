@@ -27,7 +27,7 @@ public class Affector_SpinTwist : AffectorBase
 					deltaTime,
 					proj.physicsTransform.SpinVelocity),
 				0, 0);
-		proj.physicsTransform.Position = pos;
+		//proj.physicsTransform.Position = pos;
 	}
 
 	#region Related Methods

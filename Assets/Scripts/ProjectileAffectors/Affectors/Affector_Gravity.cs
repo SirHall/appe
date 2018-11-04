@@ -16,6 +16,7 @@ public class Affector_Gravity : AffectorBase
 
 	public override void Tick_PostPhysics(float deltaTime)
 	{
+		//Debug.Log($"Gravity is running {gravity * deltaTime}");
 		proj.physicsTransform.AddForce(
 			useAdvancedGravity ? GetGravity(proj.physicsTransform.Position.y) : gravity,
 			ForceMode.Acceleration,

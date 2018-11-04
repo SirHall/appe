@@ -14,7 +14,9 @@ public class AffectorBase : ICloneable
 	//	this.proj = projectile;
 	//}
 
+	[NonSerialized]
 	protected AffectedProjectile proj;
+
 	public AffectedProjectile Projectile { set { this.proj = value; } }
 
 	public virtual void Tick_PrePhysics(float deltaTime) { }

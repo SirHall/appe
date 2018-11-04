@@ -95,11 +95,13 @@
     <Compile Include="Assets\Scripts\ProjectileAffectors\Affectors\Affector_SpinTwist.cs" />
     <Compile Include="Assets\Scripts\ProjectileAffectors\Affectors\Affector_WindDrag - Copy.cs" />
     <Compile Include="Assets\Scripts\ProjectileAffectors\Affectors\Affector_WindDragCubed.cs" />
+    <Compile Include="Assets\Scripts\ProjectileAffectors\TerminalBallistics\Default_TerminalCalculator.cs" />
     <Compile Include="Assets\Scripts\ProjectileAffectors\TerminalBallistics\TerminalBallisticCalculator.cs" />
     <Compile Include="Assets\Scripts\ProjectileAffectors\TerminalBallistics\TerminalBallisticDetector.cs" />
     <Compile Include="Assets\Scripts\ProjectileContainer.cs" />
     <Compile Include="Assets\Scripts\ProjectileData.cs" />
     <Compile Include="Assets\Scripts\ProjectileDataObject.cs" />
+    <Compile Include="Assets\Scripts\ProjectileHelper\ProjectileHelper.cs" />
     <Compile Include="Assets\Scripts\ProjectileStuff\DragGraphGenerator.cs" />
     <Compile Include="Assets\Scripts\ProjectileStuff\DragGraphGenerator2.cs" />
     <Compile Include="Assets\Scripts\ProjectileStuff\FiringDirectionCalculator.cs" />
@@ -110,6 +112,7 @@
     <Compile Include="Assets\Scripts\ProjectileStuff\RenderProjectilePath.cs" />
     <Compile Include="Assets\Scripts\ProjectileStuff\SpawnBullets.cs" />
     <Compile Include="Assets\Scripts\ProjLauncher\InternalBallistics.cs" />
+    <Compile Include="Assets\Scripts\ProjLauncher\StressFirer.cs" />
     <Compile Include="Assets\Scripts\VirtualPhysicsTransform.cs" />
     <Compile Include="Assets\Tester.cs" />
     <Compile Include="Assets\ToDo\Core\ScriptsParser.cs" />

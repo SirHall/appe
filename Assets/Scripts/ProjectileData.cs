@@ -124,7 +124,7 @@ public class ProjectileData : ICloneable, IProjData //: ScriptableObject
 	/// <summary>
 	/// Gets the drag coefficient at any velocity magnitude.
 	/// </summary>
-	/// <returns>The drag coefficient.</returns>
+	/// <returns>The drag coefficient at the given mach value.</returns>
 	/// <param name="velocity">Magnitude of velocity.</param>
 	public float GetDragCoefficient(float velocity)
 	{
@@ -136,6 +136,9 @@ public class ProjectileData : ICloneable, IProjData //: ScriptableObject
 			0;
 	}
 
+	//{TODO} Need to setup material definitions
+	public float SpeedOfSoundInObject(float density, float bulModulusOfElasticity)
+		=> Mathf.Sqrt(bulModulusOfElasticity / density);
 
 	public object Clone()
 	{

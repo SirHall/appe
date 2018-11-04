@@ -44,6 +44,7 @@ public class Affector_WindDragCubed : AffectorBase
 
 	public DirectionalDragCube directionDragCube = new DirectionalDragCube();
 
+	//{TODO}Update this to use the DirectionalDragCube
 	public override void Tick_PostPhysics(float deltaTime)
 	{
 		proj.physicsTransform.AddForce(
