@@ -3,9 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class StressFirer : MonoBehaviour
-{
+public class StressFirer : MonoBehaviour {
 	//public IProjData projData;
 
 	public AffectedProjectile affectedProj = new AffectedProjectile();
@@ -19,12 +17,10 @@ public class StressFirer : MonoBehaviour
 
 	public int instances = 1000;
 
-	void Start()
-	{
+	void Start() {
 		AffectedProjectile newInst;
 
-		for (int i = 0; i < instances; i++)
-		{
+		for (int i = 0; i < instances; i++) {
 			newInst = affectedProj.Clone() as AffectedProjectile;
 			Vector3 dir = Vector3.Lerp(initialDirection1, initialDirection2, (float)CryptoRand.Range()).normalized;
 			newInst.physicsTransform.AddForce(dir * initialVelocity, ForceMode.VelocityChange, Time.deltaTime);
@@ -34,8 +30,7 @@ public class StressFirer : MonoBehaviour
 		}
 	}
 
-	void Update()
-	{
+	void Update() {
 		//affectedProj.Tick(Time.deltaTime);
 	}
 }

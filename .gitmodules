@@ -1,0 +1,3 @@
+[submodule ".\\Assets\\OdinSerializer"]
+	path = .\\Assets\\OdinSerializer
+	url = https://github.com/TeamSirenix/odin-serializer.git

@@ -8,16 +8,16 @@ using System.Linq;
 
 [System.Serializable]
 public class AffectedProjectile : ICloneable {
+
 	public ProjectileData projectileData = new ProjectileData();
 
 	public VirtualPhysicsTransform physicsTransform = new VirtualPhysicsTransform();
 
-	//[SerializeField]
 	public AffectorBase[] affectors = new AffectorBase[0];
 
-	//{TODO} Setup cloning for below
 	public TerminalBallisticCalculator[] terminalCalculators = new TerminalBallisticCalculator[]
 			{ new Default_TerminalCalculator() };
+
 	public TerminalBallisticDetector terminalDetector = new TerminalBallisticDetector();
 
 	public float aliveVelocity = 0.01f; //When below this velocity, this projectile is dead

@@ -1402,9 +1402,9 @@ MonoBehaviour:
       layerMask:
         serializedVersion: 2
         m_Bits: 4294967295
-    aliveVelocity: 0.001
-  initialDirection1: {x: 0, y: 1, z: 5}
-  initialDirection2: {x: 0, y: 5, z: 1}
+    aliveVelocity: 0.01
+  initialDirection1: {x: 0, y: 0.5, z: 5}
+  initialDirection2: {x: 0, y: 5, z: 0.5}
   initialVelocity: 50
   instances: 10
 --- !u!4 &1496521374

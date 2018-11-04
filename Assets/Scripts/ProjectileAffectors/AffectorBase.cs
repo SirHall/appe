@@ -5,8 +5,7 @@ using UnityEngine;
 
 //[CreateAssetMenu(fileName = "ProjectileAffector", menuName = "AProjectiles/ProjectileAffector")]
 [System.Serializable]
-public class AffectorBase : ICloneable
-{
+public class AffectorBase : ICloneable {
 	//public AffectorBase() { }
 
 	//public AffectorBase(AffectedProjectile projectile)
@@ -23,8 +22,7 @@ public class AffectorBase : ICloneable
 
 	public virtual void Tick_PostPhysics(float deltaTime) { }
 
-	public virtual object Clone()
-	{
+	public virtual object Clone() {
 		return (AffectorBase)MemberwiseClone();
 	}
 }

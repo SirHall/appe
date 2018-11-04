@@ -48,7 +48,7 @@ public class InternalBallistics {
             projectileDistance = 0.0f,
             pressure = 0.0f,
             elapsedTime = 0.0f,
-            barrelVolume = Mathf.PI * projectile.crossSectionalArea;
+            barrelVolume = Mathf.PI * projectile.CrossSectionalArea;
         //V=M/D
         int numberOfGranules = (int)(
             (propellantMass * propellantReaction.density)//Propellant volume

@@ -47,7 +47,7 @@ public class Default_TerminalCalculator : TerminalBallisticCalculator {
 			Mathf.Pow( //3rd root
 				(projData.bulletMass * physicsTransform.VelocityMagnitude * physicsTransform.VelocityMagnitude) //{TODO} Make velocity relative to target
 				/
-				(targetDensity * projData.crossSectionalArea * projData.GetDragCoefficient(physicsTransform.Velocity.magnitude / 343.0f)) //{TODO} Rewrite correctly!
+				(targetDensity * projData.CrossSectionalArea * projData.GetDragCoefficient(physicsTransform.Velocity.magnitude / 343.0f)) //{TODO} Rewrite correctly!
 				, (1.0f / 3.0f)
 			);
 
@@ -90,7 +90,7 @@ public class Default_TerminalCalculator : TerminalBallisticCalculator {
 				-
 				(
 					(
-						 projData.crossSectionalArea *
+						 projData.CrossSectionalArea *
 						 projData.GetDragCoefficient(physicsTransform.Velocity.magnitude / 343.0f) *
 						 targetDensity *
 						 objectThickness.thickness * objectThickness.thickness * objectThickness.thickness

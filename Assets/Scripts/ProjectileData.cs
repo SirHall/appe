@@ -6,7 +6,7 @@ using Excessives.Unity;
 
 //[CreateAssetMenu(fileName = "ProjectileSetup", menuName = "AProjectiles/ProjectileData")]
 [System.Serializable]
-public class ProjectileData : ICloneable, IProjData //: ScriptableObject
+public class ProjectileData : ICloneable//, IProjData //: ScriptableObject
 {
 	public float initVelocity;
 
@@ -15,11 +15,11 @@ public class ProjectileData : ICloneable, IProjData //: ScriptableObject
 
 	public bool useAdvancedDragModel = false;
 
-	#region IProjData
+	//#region IProjData
 
-	public ProjectileData ProjInfo { get { return this; } }
+	//public ProjectileData ProjInfo { get { return this; } }
 
-	#endregion
+	//#endregion
 
 	#region Simple Drag
 
@@ -61,32 +61,29 @@ public class ProjectileData : ICloneable, IProjData //: ScriptableObject
 	#endregion
 
 	//{TODO} Correct unit of measurement
-	float CrossSectionalArea;
+	float _crossSectionalArea;
 
-	public float crossSectionalArea
-	{
-		get
-		{
+	public float CrossSectionalArea {
+		get {
 			return
-				(this.CrossSectionalArea == 0.0f)
+				(this._crossSectionalArea == 0.0f)
 				? //If this is null, calculate it then return the value
 				new Func<float>(
-				() =>
-				{
+				() => {
 					//Find cross sectional area from the largest diameter
-					this.CrossSectionalArea = Mathf.Pow(Mathf.Max(
+					this._crossSectionalArea = Mathf.Pow(Mathf.Max(
 						this.baseDiameter,
 						this.boatTailDiameter,
 						this.bulletDiameter,
 						this.driveBandDiameter) / 2, 2) * Mathf.PI;
 
-					return this.CrossSectionalArea;
+					return this._crossSectionalArea;
 				}
 			)()
 				: //If not null, just return whatever we have
-			this.CrossSectionalArea;
+			this._crossSectionalArea;
 		}
-		set { this.CrossSectionalArea = value; }
+		set { this._crossSectionalArea = value; }
 	}
 
 	float? SG;
@@ -99,8 +96,7 @@ public class ProjectileData : ICloneable, IProjData //: ScriptableObject
 
 	public bool isGraphGenerated { get; set; } = false;
 
-	public void GenerateDragCoefficientGraph()
-	{
+	public void GenerateDragCoefficientGraph() {
 		dragGraph = DragGraphGenerator2.GenerateDragCurve(
 			this,
 			100,
@@ -110,8 +106,7 @@ public class ProjectileData : ICloneable, IProjData //: ScriptableObject
 		isGraphGenerated = true;
 	}
 
-	public void InitGraphSettings()
-	{
+	public void InitGraphSettings() {
 		if (dragGraph == null)
 			throw (new Exception("Cannot initialize drag graph if it is null"));
 		dragGraph.postWrapMode = WrapMode.ClampForever;
@@ -126,8 +121,7 @@ public class ProjectileData : ICloneable, IProjData //: ScriptableObject
 	/// </summary>
 	/// <returns>The drag coefficient at the given mach value.</returns>
 	/// <param name="velocity">Magnitude of velocity.</param>
-	public float GetDragCoefficient(float velocity)
-	{
+	public float GetDragCoefficient(float velocity) {
 		float dragCoefficient = dragGraph.Evaluate(velocity);
 		return (dragCoefficient >= 0)
 			?
@@ -140,8 +134,7 @@ public class ProjectileData : ICloneable, IProjData //: ScriptableObject
 	public float SpeedOfSoundInObject(float density, float bulModulusOfElasticity)
 		=> Mathf.Sqrt(bulModulusOfElasticity / density);
 
-	public object Clone()
-	{
+	public object Clone() {
 		return (ProjectileData)MemberwiseClone();
 	}
 
