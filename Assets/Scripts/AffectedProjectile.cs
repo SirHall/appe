@@ -3,6 +3,7 @@ using Excessives.LinqE;
 using System;
 using UnityEngine;
 using System.Linq;
+using OdinSerializer;
 
 //The purely simulated projectile
 
@@ -63,9 +64,9 @@ public class AffectedProjectile : ICloneable {
 		physicsTransform.Tick(deltaTime);
 
 		//If we hit something, process it
-		TerminalBallisticsData terminalData = terminalDetector.Tick(this, true); //Have we hit anything?
+		TerminalBallisticsData terminalData = terminalDetector.Tick(this);//, true); //Have we hit anything?
 		if (terminalData != null)
-			terminalCalculators.ForEach(n => n.ProcessTerminalHit(terminalData)); //Tell all the terminalCalculators, that he have hit something!
+			terminalCalculators.ForEach(n => n.ProcessTerminalHit(terminalData)); //We have hit something!
 
 		if (IsDead()) //Do this speed check before an effector speeds us up again
 			Active = false; //Only set this when we actually die
@@ -84,9 +85,7 @@ public class AffectedProjectile : ICloneable {
 	}
 
 	public virtual bool IsDead() {
-		if (physicsTransform.Velocity.magnitude < aliveVelocity)
-			Debug.Log("Died to low speed");
-		return physicsTransform.Velocity.magnitude < aliveVelocity;
+		return physicsTransform.Velocity.magnitude < aliveVelocity || physicsTransform.Position.y < -10;
 	}
 
 	public virtual object Clone() {

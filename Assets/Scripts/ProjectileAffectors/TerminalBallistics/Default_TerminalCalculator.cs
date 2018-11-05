@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Excessives;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -64,9 +65,10 @@ public class Default_TerminalCalculator : TerminalBallisticCalculator {
 
 		ThicknessData objectThickness =
 			ProjectileHelper.FindThickness(
-			physicsTransform.Position,
+			physicsTransform.PrevPosition,
 			physicsTransform.Velocity.normalized,
 			(rCH) => rCH.collider.gameObject == penData.hitInfo.collider.gameObject); //Only colliders on this object
+
 
 		Debug.Log($"Thickness: {objectThickness.thickness}m");
 
@@ -99,6 +101,20 @@ public class Default_TerminalCalculator : TerminalBallisticCalculator {
 					projData.bulletMass
 				)
 				+ (physicsTransform.VelocityMagnitude * physicsTransform.VelocityMagnitude)
+				);
+
+		//Modify the exit direction depending on the projectile velocity
+		//{TODO} Rewrite!
+		float range = 0.25f;
+
+		physicsTransform.VelocityDirection +=
+			Vector3.Lerp(
+				new Vector3(
+					CryptoRand.Range(-range, range),
+					CryptoRand.Range(-range, range),
+					CryptoRand.Range(-range, range)),
+				Vector3.zero,
+				Mathf.Clamp(1 / physicsTransform.VelocityMagnitude, 0, 1)
 				);
 
 		Debug.Log($"Stopping distance: {stoppingDist}");

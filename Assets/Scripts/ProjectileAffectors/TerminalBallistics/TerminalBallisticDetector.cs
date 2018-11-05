@@ -26,7 +26,7 @@ public class TerminalBallisticDetector : ICloneable {
 					proj.physicsTransform.PrevPosition,
 					proj.physicsTransform.PrevPosition - proj.physicsTransform.Position,
 					Color.cyan,
-					60.0f,
+					10.0f,
 					false
 					);
 

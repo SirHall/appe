@@ -1,4 +1,5 @@
 ﻿using Excessives;
+using Excessives.Unity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,11 +16,19 @@ public class StressFirer : MonoBehaviour {
 
 	public float initialVelocity = 50.0f;
 
-	public int instances = 1000;
+	public int instances = 10;
 
 	void Start() {
-		AffectedProjectile newInst;
+		Fire();
+	}
 
+	void Update() {
+		if (KeyCode.F.Pressed())
+			Fire();
+	}
+
+	void Fire() {
+		AffectedProjectile newInst;
 		for (int i = 0; i < instances; i++) {
 			newInst = affectedProj.Clone() as AffectedProjectile;
 			Vector3 dir = Vector3.Lerp(initialDirection1, initialDirection2, (float)CryptoRand.Range()).normalized;
@@ -28,9 +37,5 @@ public class StressFirer : MonoBehaviour {
 			ProjectilePool.instance.FireProjectile(newInst);
 			newInst.Initial(); //{TODO} This is dirty
 		}
-	}
-
-	void Update() {
-		//affectedProj.Tick(Time.deltaTime);
 	}
 }

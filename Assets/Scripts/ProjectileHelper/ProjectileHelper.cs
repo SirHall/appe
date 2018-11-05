@@ -1,14 +1,13 @@
-﻿using System;
+﻿using Excessives.LinqE;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public static class ProjectileHelper
-{
+public static class ProjectileHelper {
 	//Is compatible with compound-colliders
-	public static ThicknessData FindThickness(Vector3 origin, Vector3 direction, Func<RaycastHit, bool> isColliderValid, float maxDist = 100, int layerMask = int.MaxValue)
-	{
+	public static ThicknessData FindThickness(Vector3 origin, Vector3 direction, Func<RaycastHit, bool> isColliderValid, float maxDist = 100, int layerMask = int.MaxValue) {
 		//Damn Linq can be beautiful
 		RaycastHit[] casts =
 			Physics.RaycastAll(origin, direction, maxDist, layerMask) //Forward cast
@@ -17,28 +16,28 @@ public static class ProjectileHelper
 			.OrderBy(n => Vector3.Distance(origin, n.point)) //Order by distance
 			.ToArray();
 
+		Debug.Log($"Num: {casts.Length}");
+
 		foreach (var cast in casts)
-			DrawingFuncs.DrawStar(cast.point, Color.blue, 1.0f, float.PositiveInfinity);
+			DrawingFuncs.DrawStar(cast.point, Color.blue, 0.1f, 10);
 
 		//Find exit
-		int depth = 1; //For the depth in the colliders
-		for (int i = 0; i < casts.Length; i++)
-		{
+		int depth = 0; //For the depth in the colliders
+		for (int i = 0; i < casts.Length; i++) {
 			//We use Vector3.Dot to tell which direction the face is pointing relative to our fire direction
 			depth += (int)Mathf.Sign(Vector3.Dot(direction, -casts[i].normal)); //Damn I love one-liners
 			if (depth == 0)
 				return new ThicknessData(Vector3.Distance(origin, casts[i].point), casts[i].point);
 		}
 
+		Debug.Log("Could not find thickness");
 		//If a proper exit is not found
 		return default(ThicknessData);
 	}
 }
 
-public struct ThicknessData
-{
-	public ThicknessData(float thickness, Vector3 exitPosition)
-	{
+public struct ThicknessData {
+	public ThicknessData(float thickness, Vector3 exitPosition) {
 		this.thickness = thickness;
 		this.exitPosition = exitPosition;
 	}
