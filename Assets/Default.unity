@@ -2015,7 +2015,7 @@ MonoBehaviour:
       rotVel: {x: 0, y: 0, z: 0, w: 1}
       prevRot: {x: 0, y: 0, z: 0, w: 1}
       prevRotVel: {x: 0, y: 0, z: 0, w: 1}
-      mass: 0.1
+      mass: 1
     affectors: []
     terminalCalculators: []
     terminalDetector:
@@ -2023,9 +2023,9 @@ MonoBehaviour:
         serializedVersion: 2
         m_Bits: 4294967295
     aliveVelocity: 0.01
-  initialDirection1: {x: 0, y: 0.1, z: 1}
-  initialDirection2: {x: 0, y: 0.1, z: 1}
-  initialVelocity: 100
+  initialDirection1: {x: 0, y: 0, z: 1}
+  initialDirection2: {x: 0, y: 0, z: 1}
+  initialVelocity: 500
   instances: 1
 --- !u!4 &1496521374
 Transform:
@@ -2680,7 +2680,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1917641997
 BoxCollider:
   m_ObjectHideFlags: 0
