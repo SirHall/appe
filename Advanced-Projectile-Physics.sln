@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Advanced-Projectile-Physics", "Assembly-CSharp.csproj", "{ABAC7EE9-1262-DAE6-A7EC-EB1EE5ACF8F6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{ABAC7EE9-1262-DAE6-A7EC-EB1EE5ACF8F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Advanced-Projectile-Physics", "Assembly-CSharp-firstpass.csproj", "{F04AC823-2C27-40F0-D4BD-F8C90F93340B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{F04AC823-2C27-40F0-D4BD-F8C90F93340B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Advanced-Projectile-Physics", "Assembly-CSharp-Editor.csproj", "{DC4EB5C1-29E3-A033-4889-8A682BB0BA33}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{DC4EB5C1-29E3-A033-4889-8A682BB0BA33}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

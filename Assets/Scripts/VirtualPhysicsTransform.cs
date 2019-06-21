@@ -25,9 +25,18 @@ public class VirtualPhysicsTransform : ICloneable {
 		prevRotVel = initRotVel;
 	}
 
-	//{TODO} Complete
 	public void Initialise(VirtualPhysicsTransform fromData) {
+		pos = fromData.pos;
+		vel = fromData.vel;
+		prevPos = fromData.prevPos;
+		prevVel = fromData.prevVel;
 
+		rot = fromData.rot;
+		rotVel = fromData.rotVel;
+		prevRot = fromData.prevRot;
+		prevRotVel = fromData.prevRotVel;
+
+		mass = fromData.mass;
 	}
 
 	#region Private Vars
@@ -114,7 +123,7 @@ public class VirtualPhysicsTransform : ICloneable {
 
 	public Vector3 VelocityDirection {
 		get { return Velocity.normalized; }
-		set { vel = value * vel.magnitude; }
+		set { Velocity = value.normalized * Velocity.magnitude; }
 	}
 
 	#endregion
@@ -194,7 +203,7 @@ public class VirtualPhysicsTransform : ICloneable {
 	#region ICloneable
 
 	public virtual object Clone() {
-		return (VirtualPhysicsTransform)MemberwiseClone();
+		return MemberwiseClone() as VirtualPhysicsTransform;
 	}
 
 	#endregion
