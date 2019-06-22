@@ -1127,7 +1127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1496521373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2072,7 +2072,7 @@ MonoBehaviour:
         m_RotationOrder: 4
       bulletMass: 0.43
     physicsTransform:
-      pos: {x: 0, y: 0, z: 0}
+      pos: {x: 0, y: 1, z: 0}
       vel: {x: 0, y: 0, z: 100}
       prevPos: {x: 0, y: 0, z: 0}
       prevVel: {x: 0, y: 0, z: 0}
@@ -2319,7 +2319,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1603007065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4602,7 +4602,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1917641997
 BoxCollider:
   m_ObjectHideFlags: 0

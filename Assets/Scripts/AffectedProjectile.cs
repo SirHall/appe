@@ -97,7 +97,7 @@ public class AffectedProjectile : ICloneable {
 		//Debug information
 		//Debug.DrawLine(physicsTransform.PrevPosition, physicsTransform.Position, Color.blue, 120);
 		//DrawingFuncs.DrawStar(physicsTransform.Position, Color.green, 0.5f, 120);
-		physicsTransform.RenderDebug(deltaTime, deltaTime, 2.0f);
+		physicsTransform.RenderDebug(deltaTime, deltaTime, 20.0f);
 
 
 	}

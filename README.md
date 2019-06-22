@@ -45,4 +45,24 @@ Hitting the *Generate Drag Curve* button below the data options will generate th
 
 ![The generated drag curve](https://drive.google.com/uc?id=1fmul3i5QsW0hiEe0Fglqi8kbPVrXQorA "The generated drag curve")
 
+## Collision Handling
+
+In APPE, collision handling is done using customised TerminalBallisticDetector's to handle detection of collisions, and TerminalBallisticCalculators that compute the results of a collision. In most cases the default terminal ballistic setup is more than enough.
+
+Features supported by the default terminal calculator:
+
+- On collision, will fire a forward-casting and backward-casting raycast to determine the thickness of an object. Will handle object thickness correctly even if two collision meshes intersect. Upon intersection it will treat both meshes as a single unit. This is useful for models where you may have multiple meshes intersecting at corners. 
+
+- Using this thickness it will attempt to see whether or not the projectile can penetrate given the density of the target, and all drag-related functionality that the projectile uses during normal simulation. 
+
+- If the projectile can penetrate the object, it will find out how much velocity the projectile should have upon exit, and will deviate the path of the projectile by a small amount:
+
+![Two projectiles tavelling through a set of walls](https://drive.google.com/uc?id=1BH3NcZPSQ8I9zkhHzyLB4a-mhM4q-dCy "Two projectiles tavelling through a set of walls")
+
+- If the projectile doesn't penetrate, the distance the projectile penetrated will be found, and it if is less than the length of the nose, a richochet will take place. The richochet is affected by the velocity of the projectile, the angle at which the surface was hit, and the restitution (or bounciness as the Unity engine calls it).
+
+![A projectile repeatedly bouncing off a floor](https://drive.google.com/uc?id=1ma_OrZguVsMUweltSRCd_XcgiMmss-WO "A projectile repeatedly bouncing off a floor")
+
+## The firing angle solver
+
 
