@@ -25,10 +25,10 @@ It's aim is to realistically simulated the trajectory of a projectile using real
 
 To assist in the setting up of the projectile, a live-render of the projectile is provided as you work on it:
 
-![alt text](https://drive.google.com/open?id=1hr94lLvWlTj9hwuidrvRPReJVE0TNI3A "The projectile data screen")
+![Projectile data screen](https://drive.google.com/open?id=1hr94lLvWlTj9hwuidrvRPReJVE0TNI3A/preview "The projectile data screen")
 
 Hitting the *Generate Drag Curve* button below the data options will generate the drag curve. This specific setup generates the following curve:
 
-![alt text](https://drive.google.com/open?id=1fmul3i5QsW0hiEe0Fglqi8kbPVrXQorA "The projectile data screen")
+![The generated drag curve](https://drive.google.com/open?id=1fmul3i5QsW0hiEe0Fglqi8kbPVrXQorA/preview "The generated drag curve")
 
 
